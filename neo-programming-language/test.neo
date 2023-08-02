@@ -1,0 +1,58 @@
+# This is an inline comment
+#! Multiline comment 
+
+:)
+
+!#
+
+module test
+
+class Rectangle
+    let name? string # This is a nullable type
+    let width float # This is public class field
+    let height float
+    let _hash int # This is a private class field
+
+    constructor(name? string, width float, height float)
+        assert width > 0.0 and height > 0.0
+        self.name = name
+        self.width = width
+        self.height = height
+        self._hash = width as int ^ height as int # Compute simple hash for this rectangle
+    end
+
+    method getArea() -> float
+        return self.width * self.height
+    end
+
+    method getPermimeter() -> float
+        return (self.width + self.height) * 2.0
+    end
+
+    method scale(factor float)
+        self.width *= factor
+        self.height *= factor
+    end
+
+    method getHash() => self._hash
+    method setHash(hash int) => self._hash = hash
+
+    override method toString() -> string
+        return "${self.name}(${self.width}, ${self.height})";
+    end
+end
+
+class Test
+    method main()
+        let i = 100
+        while i > 0
+            let rect = new Rectangle("test", i as float, i as float)
+            print(rect)
+            print(rect.getArea())
+            print(rect.getPermimeter())
+            rect.scale(2.0)
+            print(rect)
+            --i
+        end
+    end
+end

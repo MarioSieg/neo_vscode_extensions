@@ -1,0 +1,25 @@
+{
+  "name": "neo-programming-language",
+  "displayName": "NEO Programming Language",
+  "description": "Syntax highlighting and build support for the NEO programming language.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "neo",
+      "aliases": ["NEO Programming Language", "neo"],
+      "extensions": [".neo"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "neo",
+      "scopeName": "module.neo",
+      "path": "./syntaxes/neo.tmLanguage.json"
+    }]
+  }
+}

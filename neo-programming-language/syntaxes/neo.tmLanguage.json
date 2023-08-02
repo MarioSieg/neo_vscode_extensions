@@ -1,0 +1,96 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "NEO Programming Language",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#literals"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.neo",
+					"match": "#.*$"
+				},
+				{
+					"name": "comment.multiline.neo",
+					"begin": "#!",
+					"end": "!#"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.keywords.neo",
+					"match": "\\b(method|let|new|end|then|if|else|return|class|module|break|continue|while|static|do|constructor|self|assert|as|override)\\b"
+				},
+				{
+					"name": "keyword.types.neo",
+					"match": "\\b(int|float|char|bool|string)\\b"
+				},
+				{
+					"name": "keyword.operators.neo",
+					"match": "\\b(and|or|not)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.neo",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.neo",
+					"match": "\\\\."
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.neo",
+					"match": "\\b(\\.|=|\\+|-|\\*|\\*\\*|!\\+|!-|!\\*|!\\*\\*|/|%|\\+=|-=|\\*=|\\*\\*=|!\\+=|!-=|!\\*=|!\\*\\*=|/=|%=|\\+\\+|--|==|!=|<|<=|>|>=|&|\\||\\^|&=|\\|=|\\^=|<<|>>|<<<|>>>|>>>>|<<=|>>=|<<<=|>>>=|>>>>=|~)\\b"
+				}
+			]
+		},
+		"literals": {
+			"patterns": [
+				{
+					"name": "constant.numeric.integer.binary.neo",
+					"match": "\\b0[bB][01][_01]*[01]?\\b"
+				},
+				{
+					"name": "constant.numeric.integer.octal.neo",
+					"match": "\\b0[cC][0-7][_0-7]*[0-7]?\\b"
+				},
+				{
+					"name": "constant.numeric.integer.hex.neo",
+					"match": "\\b0[xX][0-9a-fA-F][_0-9a-fA-F]*[0-9a-fA-F]?\\b"
+				},
+				{
+					"name": "constant.numeric.integer.decimal.neo",
+					"match": "\\b(?:0|[1-9][_0-9]*)\\b"
+				},
+				{
+					"name": "constant.numeric.float.neo",
+					"match": "\\b(?:\\d+[eE][-+]?\\d+|\\d+\\.\\d+[eE][-+]?\\d+|\\d+\\.\\d+|\\.\\d+)(?![a-zA-Z_])\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "module.neo"
+}
